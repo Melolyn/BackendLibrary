@@ -2,6 +2,7 @@ import 'dotenv/config';
 import express from 'express';
 import cors from 'cors';
 import connectDB from './db.js';
+import dotenv from 'dotenv';
 import bookRoutes from './Routes/BookRoutes.js';
 import userRoutes from './Routes/UserRoutes.js';
 import authRoutes from './Routes/authRoutes.js';
