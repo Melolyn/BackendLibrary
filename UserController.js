@@ -1,4 +1,4 @@
-import User from './UserModel.js';
+import User from '../UserModel.js';
 import jwt from 'jsonwebtoken';
 const { sign } = jwt;
 import bcrypt from 'bcryptjs';

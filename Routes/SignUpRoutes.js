@@ -1,18 +1,18 @@
 // In your backend (e.g., auth.js)
-const express = require('express');
-const bcrypt = require('bcryptjs');
-const User = require('../UserModel.js');
+import { Router } from 'express';
+import { hash } from 'bcryptjs';
+import User, { findOne } from '../UserModel.js';
 
-const router = express.Router();
+const router = Router();
 
 router.post('/signup', async (req, res) => {
   const { username, email, password } = req.body;
 
   try {
-    const userExists = await User.findOne({ email });
+    const userExists = await findOne({ email });
     if (userExists) return res.status(400).json({ message: 'User already exists' });
 
-    const hashedPassword = await bcrypt.hash(password, 10);
+    const hashedPassword = await hash(password, 10);
 
     const newUser = new User({ username, email, password: hashedPassword });
     await newUser.save();
@@ -23,4 +23,4 @@ router.post('/signup', async (req, res) => {
   }
 });
 
-module.exports = router;
+export default router;
