@@ -5,7 +5,7 @@ import connectDB from './db.js';
 import bookRoutes from './Routes/BookRoutes.js';
 import userRoutes from './Routes/UserRoutes.js';
 import authRoutes from './Routes/authRoutes.js';
-
+dotenv.config();
 const app = express();
 const MONGO_URI = process.env.MONGO_URI;
 
